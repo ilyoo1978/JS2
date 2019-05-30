@@ -1,0 +1,39 @@
+.header{
+	background-color: #707070;
+	min-height: 100px;
+	width: 80%;
+	margin: 0 auto;
+	padding: 10px;
+}
+.products{
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+    margin: 0 auto;
+	width: 80%;
+	background-color: #a1a1a1;
+	padding: 10px;
+}
+.product-item{
+	min-height: 32vh;
+	background-color: #f2eded;
+	text-align: center;
+	padding: 10px;
+	margin: 10px;
+	border: solid #f2eded;
+	display: grid;
+	align-content: center;
+
+}
+.product-item:hover {
+	border: solid black;
+}
+.buy-btn:hover{
+    font-weight: bold;
+}
+.btn-cart{
+	display: block;
+	float: right;
+}
+.btn-cart:hover{
+	    font-weight: 600;
+}
