@@ -29,7 +29,7 @@ class ProductsList {
     calcTotal(){ // подсчет общей стоимости товаров.
         let total=0;
         for(let prod of this.productsAll){
-            prod.price? total =+ prod.price: total=total;
+            prod.price? total += prod.price: total=total;
         }
         console.log(`total price: ${total}`);
     }
