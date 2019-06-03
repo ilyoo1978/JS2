@@ -1,0 +1,15 @@
+body{
+	min-height: 100hv;
+	background-color: #4f4f4f;
+	display: flex;
+}
+.container{
+	margin: auto;
+	width: 30%;
+	text-align: center;
+	background-color: #949191;
+	border-radius: 20px;
+}
+label:checked{
+	font-weight: 700;
+}
