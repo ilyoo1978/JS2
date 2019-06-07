@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Promise</title>
+</head>
+<body id="body">
+	<script>
+let API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/catalogData.json';
+// let getRequest = (url, cb) => {
+//     let xhr = new XMLHttpRequest();
+//     xhr.open('GET', url, true);
+//     xhr.onreadystatechange = () => {
+//         if (xhr.readyState === 4) {
+//             if (xhr.status !== 200) {
+//                 console.log('error')
+//             } else {
+//                 cb(xhr.responseText)
+//             }
+//         }
+//     }
+//     xhr.send();
+// };
+// getRequest(API, (result)=>{document.getElementById('body').innerText = result});
+
+function getRequest (url){
+	return new Promise((resolve, reject)=>{
+			let xhr = new XMLHttpRequest();
+	        xhr.open('GET', url, true);
+	        xhr.onreadystatechange = () => {
+	        if (xhr.readyState === 4) {
+	            if (xhr.status !== 200) {
+	                reject('что то пошло не так')
+	            } else {
+	                resolve(xhr.responseText)
+	            }
+	        }
+	    }
+	    xhr.send();
+		})
+}
+ if((Math.floor(Math.random()*2+1))===2){ //генерируем ошибку с вероятностью 1/2
+ 	API += 'error';
+ }
+getRequest(API)
+	.then((result)=>{document.getElementById('body').innerText = result})
+	.catch((error)=>{document.getElementById('body').innerText = error});
+	</script>
+</body>
+</html>
