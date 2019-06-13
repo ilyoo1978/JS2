@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Validator</title>
+	<link rel="stylesheet" href="formStyle.css">
+</head>
+<body>
+	<div class="container">
+		<form action="#" id="myForm" method="post">
+			<div class="name-input form-item">
+				<span>Name: </span>
+				<input type="text" name="name">
+				<p class="error-message hidden"></p>
+			</div>
+			<div class="email-input form-item">
+				<span>Email: </span>
+				<input type="email" name="email">
+				<p class="error-message hidden"></p>
+			</div>
+			<div class="phone-input form-item">
+				<span>Phone: </span>
+				<input type="text" name="phone">
+				<p class="error-message hidden"></p>
+			</div>
+			<div class="text-input form-item">
+				<span>Review: </span>
+				<textarea name="text-input" id="" cols="30" rows="10"></textarea>
+			</div>
+			<button type="submit">Send</button>
+		</form>
+	</div>
+	<script src="form.js"></script>
+</body>
+</html>
