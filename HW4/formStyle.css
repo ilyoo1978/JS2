@@ -1,0 +1,22 @@
+#myForm{
+	border-radius: 5px;
+	background-color: lightgrey;
+	margin: 0 auto;
+	padding: 20px;
+	width: 40%;
+	height: 30%;
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr auto;
+}
+input:focus{
+    outline: none;
+}
+.invalid{
+	border: 1px solid red;
+}
+.valid{
+	border: 1px solid green;
+}
+.error-msg{
+	color: red;
+}
