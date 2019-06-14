@@ -10,7 +10,7 @@
     <div id="app">
     <div class="cart hidden" id="cart">
         <div class="empty-cart cart-item" v-if="!cartList.length">Корзина пуста</div>
-        <div class="cart-item" v-for="product of cartList">
+        <div class="cart-item" v-for="product of cartList" :key="product.id_product">
             <img :src="cartImgUrl" :alt="product.product_name">
                   <div class="cart-item-description">
                       <span>{{product.product_name}}</span>
@@ -27,7 +27,7 @@
     </header>
     <main>
         <div class="products">
-            <div class="product-item" v-for="product of filterdProducts">
+            <div class="product-item" v-for="product of filterdProducts" :key="product.id_product">
                 <img :src="imgUrl" alt="product.product_name">
                   <div class="desc">
                       <h3>{{product.product_name}}</h3>
