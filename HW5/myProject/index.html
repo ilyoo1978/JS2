@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+    <div class="cart hidden" id="cart">
+        <div class="empty-cart cart-item" v-if="!cartList.length">Корзина пуста</div>
+        <div class="cart-item" v-for="product of cartList">
+            <img :src="cartImgUrl" :alt="product.product_name">
+                  <div class="cart-item-description">
+                      <span>{{product.product_name}}</span>
+                      <span>{{product.quantity}} шт.</span>
+                      <p>{{product.price * product.quantity}}</p>
+                  </div>
+                  <button class="delete-from-cart-btn" @click="removeFromCart(product)">удалить</button>
+        </div>
+    </div>
+    <header>
+        <div class="logo">E-shop</div>
+        <input type="text" @input="search" class="search-form">
+        <button class="btn-cart" type="button" @click="showHideCart">Корзина</button>
+    </header>
+    <main>
+        <div class="products">
+            <div class="product-item" v-for="product of filterdProducts">
+                <img :src="imgUrl" alt="product.product_name">
+                  <div class="desc">
+                      <h3>{{product.product_name}}</h3>
+                      <p>{{product.price}}</p>
+                      <button class="buy-btn" @click="addToCart(product)">Купить</button>
+                  </div>
+            </div>
+        </div>
+    </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
