@@ -14,6 +14,7 @@ Vue.component('cart', {
             this.$parent.getJson(`${API}/addToBasket.json`)
                 .then(data => {
                     if (data.result) {
+                        this.isError = false;
                         let find = this.cartItems.find(el => el.id_product === product.id_product);
                         if (find) {
                             find.quantity++;
@@ -24,7 +25,8 @@ Vue.component('cart', {
                             this.cartItems.push(prod);
                         }
                     } else {
-                        console.log('error');
+                        this.isError = true;
+                        this.showCart = true;
                     }
                 })
         },
@@ -33,13 +35,15 @@ Vue.component('cart', {
             this.$parent.getJson(`${API}/deleteFromBasket.json`)
                 .then(data => {
                     if (data.result) {
-                        if (product.quantity > 1) {
+                    this.isError = false;
+                    if (product.quantity > 1) {
                             product.quantity--;
                         } else {
                             this.cartItems.splice(this.cartItems.indexOf(product), 1);
                         }
                     } else {
-                        console.log('error');
+                        this.isError = true;
+                        this.showCart = true;
                     }
                 })
         }
